@@ -87,6 +87,7 @@ Plug 'vim-scripts/restore_view.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'google/vim-searchindex'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Deal with trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -129,12 +130,6 @@ set scrolloff=3 " Minimum number of lines to keep above and below cursor
 
 
 imap <C-c> <Esc>
-
-" Move around buffers more easily
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
 
 
 " treat long lines as break lines (useful when moving around in them)
