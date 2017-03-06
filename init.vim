@@ -88,6 +88,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'google/vim-searchindex'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
 
 " Deal with trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
