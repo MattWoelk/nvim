@@ -54,6 +54,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mbbill/undotree'
+Plug 'severin-lemaignan/vim-minimap'
 "Plug 'vim-scripts/restore_view.vim'
 "Plug 'tpope/vim-fugitive'
 "Plug 'majutsushi/tagbar'
@@ -211,13 +212,18 @@ noremap <leader>R <Esc>:%s/\(<C-r>/\)//gc<left><left><left>"
 " Make the word the cursor is on or just after UPPERCASE without leaving
 " insert mode using Ctrl b
 inoremap <C-b> <Esc>BgUEEi
-"
+
 " make escape instant; get rid of escape delay"
-set ttimeoutlen=10
-augroup FastEscape
+set timeout " Do time out on mappings and others
+set timeoutlen=2000 " Wait {num} ms before timing out a mapping
+   "when press Esc to leave Ins mode it no longer takes a second
+   "or another keystroke to leave Ins mode completely and update
+   "the satus line.
+set ttimeoutlen=0
+augroup FastEscape:
     autocmd!
     au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=400
+    au InsertLeave * set timeoutlen=1000
 augroup END
 
 "Set .doctest files to use python syntax highlighting
@@ -264,6 +270,7 @@ set ignorecase                  " Case insensitive search
 set smartcase                   " Case sensitive when uc present
 set nowrap
 set autoindent                  " Indent at the same level of the previous line
+set expandtab
 
 
 " Change Working Directory to that of the current file
