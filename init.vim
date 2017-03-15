@@ -96,11 +96,29 @@ set number
 
 
 set showcmd
-set backup                  " Backups are nice ...
 set undofile " Store undos persistently
 set undolevels=1000
 set undoreload=10000
 set scrolloff=3 " Minimum number of lines to keep above and below cursor
+
+set backup                  " Backups are nice ...
+" Save temporary/backup files not in the local directory, but in your ~/.vim
+" directory, to keep them out of git repos. 
+" But first mkdir backup, swap, and undo first to make this work
+call system('mkdir ~/.nvim')
+call system('mkdir ~/.nvim/backup')
+call system('mkdir ~/.nvim/swap')
+set backupdir=~/.nvim/backup//
+set directory=~/.nvim/swap//
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    call system('mkdir ~/.nvim/undo')
+    set undodir=~/.nvim/undo//
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+endif
 
 
 "imap <C-c> <Esc>
